@@ -149,8 +149,8 @@ def hapus_tugas(nim_target: int):
 # 7. Menu Edit / Update Data Tugas Peserta
 # =========================================================================
 @app.put("/edit-tugas")
-def edit_tugas(nim_kamu: int, nama_baru: str, kelompok_baru: int, ling_tugas_baru: str):
-    conn    = sqlite3.connect(pplk_tugas.db)
+def edit_tugas(nim_kamu: int, nama_baru: str, kelompok_baru: int, link_tugas_baru: str):
+    conn    = sqlite3.connect("pplk_tugas.db")
     cursor  = conn.cursor()
 
     # Perintah update, mengubah isi kolom nama, nim kelompok dan link berdasarkan nim peserta
@@ -164,4 +164,3 @@ def edit_tugas(nim_kamu: int, nama_baru: str, kelompok_baru: int, ling_tugas_bar
     conn.close()
 
     return {"status": "Sukses", "pesan": f"Data maba dengan NIm {nim_kamu} berhasil diperbarui!"}
-                   
